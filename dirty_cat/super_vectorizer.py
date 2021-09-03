@@ -211,7 +211,15 @@ class SuperVectorizer(ColumnTransformer):
             # because the former tends to raise all kind of issues when dealing
             # with scikit-learn (as of version 0.24).
             if contains_missing:
+                print(f'Column {col!r} contains missing values')
+                a = X[col][X[col].isnull()]
                 X[col] = X[col].replace(to_replace=pd.NA, value=np.nan)
+                b = X[col][X[col].isnull()]
+                X[col] = X[col].replace({pd.NA: np.nan})
+                c = X[col][X[col].isnull()]
+                print(a)
+                print(b)
+                print(c)
 
         return X
 
