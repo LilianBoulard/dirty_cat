@@ -213,11 +213,11 @@ class SuperVectorizer(ColumnTransformer):
             if contains_missing:
                 print(f'Column {col!r} contains missing values')
                 a = X[col][X[col].isnull()]
-                X[col] = X[col].replace(to_replace=pd.NA, value=np.nan)
+                X[col].replace(to_replace=pd.NA, value=np.nan, inplace=True)
                 b = X[col][X[col].isnull()]
-                X[col] = X[col].replace({pd.NA: np.nan})
+                X[col].replace({pd.NA: np.nan}, inplace=True)
                 c = X[col][X[col].isnull()]
-                X[col] = X[col].fillna(np.nan)
+                X[col].fillna(np.nan, inplace=True)
                 d = X[col][X[col].isnull()]
                 print(a)
                 print(b)
