@@ -197,6 +197,7 @@ def test_with_dirty_data():
         expected_transformers_plain,
         expected_transformers_np_cast,
     )
+    raise Exception
 
 
 def test_get_feature_names():
