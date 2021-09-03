@@ -217,9 +217,12 @@ class SuperVectorizer(ColumnTransformer):
                 b = X[col][X[col].isnull()]
                 X[col] = X[col].replace({pd.NA: np.nan})
                 c = X[col][X[col].isnull()]
+                X[col] = X[col].fillna(np.nan)
+                d = X[col][X[col].isnull()]
                 print(a)
                 print(b)
                 print(c)
+                print(d)
 
         return X
 
